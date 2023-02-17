@@ -1,0 +1,34 @@
+/* Create table about the people and what they do here */
+
+CREATE TABLE singers (id INTEGER PRIMARY KEY, name TEXT, age INTEGER);
+
+INSERT INTO singers (name, age) VALUES ("Taylor Swift", 33);
+INSERT INTO singers (name, age) VALUES ("Arian Grande", 29);
+INSERT INTO singers (name, age) VALUES ("Rihanna Fenty", 34);
+INSERT INTO singers (name, age) VALUES ("Abel Tesfaye,", 33);
+INSERT INTO singers (name, age) VALUES ("Travis Scott,", 33);
+
+CREATE TABLE Genres (id INTEGER PRIMARY KEY, type TEXT, ablum INTEGER);
+
+INSERT INTO genres (type, ablum) VALUES ("multiple genres", 10);
+INSERT INTO genres (type, ablum) VALUES ("pop", 6);
+INSERT INTO genres (type, ablum) VALUES ("reggae ", 8);
+INSERT INTO genres (type, ablum) VALUES ("dance", 5);
+INSERT INTO genres (type, ablum) VALUES ("hiphop", 3);
+
+SELECT * FROM singers;
+
+/* cross join */
+SELECT * FROM singers, genres;
+
+/* implicit inner join */
+SELECT * FROM genres, singers
+    WHERE genres.id= singers.id;
+    
+/* explicit inner join - JOIN */
+SELECT singers.name, singers.age, genres.type, genres.ablum FROM singers
+    JOIN genres
+    ON genres.id=singers.id
+     where ablum>5
+    
+    
